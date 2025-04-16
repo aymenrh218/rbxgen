@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Statistiques</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Statistiques en direct</h2>
+    <p>Utilisateurs en ligne : <span id="users"></span></p>
+    <p>Transferts aujourd’hui : <span id="transfers"></span></p>
+    <p>Total RBX envoyés : <span id="rbx"></span></p>
+    <a href="index.html" class="btn">Retour</a>
+  </div>
+  <script>
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function update() {
+      document.getElementById("users").textContent = rand(120, 200);
+      document.getElementById("transfers").textContent = rand(1000, 5000);
+      document.getElementById("rbx").textContent = rand(1000000, 5000000) + " RBX";
+    }
+    update();
+    setInterval(update, 5000);
+  </script>
+</body>
+</html>
