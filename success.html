@@ -10,7 +10,7 @@
   <div class="container">
     <h2>Transfert Réussi !</h2>
     <p>Le pseudo <strong id="pseudoDisplay"></strong> a bien reçu <strong id="amountDisplay"></strong>.</p><p><a class="btn" href="#" onclick="shareWhatsApp()">Partager sur WhatsApp</a> <a class="btn" href="#" onclick="copyTikTok()">Copier lien TikTok</a></p>
-    <p>ID de transaction : <strong id="transactionId"></strong></p><p><a class="btn" href="#" onclick="shareWhatsApp()">Partager sur WhatsApp</a> <a class="btn" href="#" onclick="copyTikTok()">Copier lien TikTok</a></p>
+    <p>ID de transaction : <strong id="transactionId"></strong> <button onclick="copyID()" class="btn">Copier ID</button></p><img src="success.gif" width="200" style="margin-top:20px;"><p><a class="btn" href="#" onclick="shareWhatsApp()">Partager sur WhatsApp</a> <a class="btn" href="#" onclick="copyTikTok()">Copier lien TikTok</a></p>
     <a href="index.html" class="btn">Retour à l'accueil</a>
   </div>
   <script>
@@ -30,7 +30,14 @@ function copyTikTok() {
   navigator.clipboard.writeText("https://tiktok.com/@rbxgen");
   alert("Lien TikTok copié !");
 }
+
+function copyID() {
+  const id = document.getElementById("transactionId").textContent;
+  navigator.clipboard.writeText(id);
+  alert("ID copié !");
+}
 </script>
+
 
 </body>
 </html>
