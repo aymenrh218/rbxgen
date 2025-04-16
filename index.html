@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RBXGEN</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <img src="logo.png" alt="RBXGEN" style="position:absolute;top:20px;left:20px;width:80px;">
+<div id="app" class="container">
+
+<div style="text-align: right; margin-bottom: 10px;">
+  <a href="stats.html" class="btn" style="padding: 8px 12px; font-size: 14px;">Voir les statistiques</a>
+</div>
+
+    <div class="step active" id="step1">
+      <h2>Salut ! Vous êtes en bonne voie pour gagner des RBX !</h2>
+      <p>Indiquez votre âge et votre pays :</p>
+      <input type="number" id="age" placeholder="Âge" />
+      <select id="country">
+        <option value="">Pays</option>
+        <option value="France">France</option>
+        <option value="Belgique">Belgique</option>
+        <option value="Maroc">Maroc</option>
+      </select>
+      <button onclick="nextStep(2)">Suivant</button>
+    
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+
+    <div class="step" id="step2">
+      <h2>Super ! Maintenant votre pseudo Roblox et le montant souhaité :</h2>
+      <input type="text" id="username" placeholder="Pseudo Roblox" />
+      <select id="amount">
+        <option value="10k">10 000 RBX</option>
+        <option value="50k">50 000 RBX</option>
+        <option value="100k">100 000 RBX</option>
+      </select>
+      <button onclick="nextStep(3)">Suivant</button>
+    
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+
+    <div class="step" id="step3">
+      <h2>Analyse du pseudo...</h2>
+      <p>Connexion au serveur Roblox...</p>
+      <div class="loader">
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+    
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+
+    <div class="step" id="step4">
+      <h2>Choisissez votre option de transfert :</h2>
+      <select id="transfer">
+        <option value="instant">Instantané</option>
+        <option value="12h">Sous 12h</option>
+        <option value="24h">Sous 24h</option>
+      </select>
+      <button onclick="startCountdown()">Valider</button>
+    
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+
+    <div class="step" id="step5">
+      <h2>Transfert en cours...</h2>
+      <div id="countdown">3
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+    
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+  
+<div id="fake-notif" style="position: fixed; bottom: 20px; left: 20px; background: #2d3436; color: #fff;
+padding: 10px 15px; border-radius: 5px; font-size: 14px; display: none; z-index: 999;"></div>
+</div>
+
+  <script src="script.js">
+const fakeUsers = ["gamer45", "noobx2023", "darkhero", "frenchking", "rbxmaster", "titan777"];
+const amounts = ["10K", "50K", "100K"];
+function showFakeNotif() {
+  const notif = document.getElementById("fake-notif");
+  const user = fakeUsers[Math.floor(Math.random() * fakeUsers.length)];
+  const amount = amounts[Math.floor(Math.random() * amounts.length)];
+  notif.textContent = `${user} a reçu ${amount} RBX !`;
+  notif.style.display = "block";
+  setTimeout(() => notif.style.display = "none", 4000);
+}
+setInterval(showFakeNotif, 12000);
+
+</script>
+</body>
+</html>
