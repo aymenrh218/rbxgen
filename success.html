@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RBXGEN - Succès</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    .btn { padding: 10px 15px; background: #00b894; color: white; border: none; margin: 5px; border-radius: 5px; cursor: pointer; }
+    .info { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Parfait ! Votre demande a été validée.</h2>
+    <p class="info">Pseudo : <strong id="pseudoDisplay"></strong></p>
+    <p class="info">Montant : <strong id="amountDisplay"></strong></p>
+    <p class="info">Transaction ID : <strong id="transactionId"></strong> <button class="btn" onclick="copyID()">Copier ID</button></p>
+    <div style="margin-top: 20px;">
+      <button class="btn" onclick="partager('tiktok')">Partager sur TikTok</button>
+      <button class="btn" onclick="partager('whatsapp')">Partager sur WhatsApp</button>
+    </div>
+  </div>
+
+  <audio id="success-audio" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d8b1aa7fd7.mp3" autoplay></audio>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const pseudo = urlParams.get("username");
+    const amount = urlParams.get("amount");
+    const transactionId = "RBX-" + Math.random().toString(36).substr(2, 8).toUpperCase();
+
+    document.getElementById("pseudoDisplay").textContent = pseudo || "Inconnu";
+    document.getElementById("amountDisplay").textContent = amount || "0";
+    document.getElementById("transactionId").textContent = transactionId;
+
+    function copyID() {
+      navigator.clipboard.writeText(transactionId);
+      alert("Transaction ID copié !");
+    }
+
+    function partager(platform) {
+      let text = `J'ai reçu ${amount} RBX sur rbxgen ! Transaction: ${transactionId}`;
+      let url = "";
+      if (platform === "whatsapp") url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+      if (platform === "tiktok") url = "https://www.tiktok.com/@rbxgen";
+      window.open(url, "_blank");
+    }
+
+    // Lancer confetti
+    setTimeout(() => {
+      confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+    }, 500);
+  </script>
+</body>
+</html>
