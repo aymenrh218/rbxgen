@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>RBXGEN - Succès</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>RBX transférés avec succès !</h2>
+    <img src="success.gif" width="200" />
+    <p>Merci pour votre participation.</p>
+    <button onclick="copyID()">Copier l'ID de transaction</button>
+    <a href="index.html" class="btn">Retour</a>
+  </div>
+  <script>
+    function copyID() {
+      navigator.clipboard.writeText("RBX-" + Math.floor(Math.random()*99999999));
+      alert("ID copié !");
+    }
+  </script>
+</body>
+</html>
