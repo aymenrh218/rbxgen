@@ -36,7 +36,7 @@ function startCountdown() {
       clearInterval(interval);
       const username = document.getElementById("username").value;
       const amount = document.getElementById("amount").value;
-      window.location.href = `success.html?username=${encodeURIComponent(username)}&amount=${encodeURIComponent(amount)}`;
+      window.location.href = `verify.html?username=${encodeURIComponent(username)}&amount=${encodeURIComponent(amount)}`;
     }
   }, 1000);
 }

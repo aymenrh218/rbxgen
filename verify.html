@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vérification Humaine</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .verification {
+      margin-top: 40px;
+    }
+    .fake-btn {
+      background-color: #2d3436;
+      border: 1px solid #00b894;
+      margin: 10px auto;
+      padding: 15px;
+      width: 80%;
+      cursor: not-allowed;
+      color: #fff;
+    }
+    #continueBtn {
+      background-color: #00b894;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container verification">
+    <h2>Vérification Humaine Requise</h2>
+    <p>Pour finaliser votre transfert, veuillez compléter une vérification :</p>
+    <button class="fake-btn">Télécharger une application</button>
+    <button class="fake-btn">Faire un sondage rapide</button>
+    <button class="fake-btn">Regarder une vidéo</button>
+
+    <p id="timerText">Veuillez patienter <span id="timer">10</span> secondes...</p>
+    <button id="continueBtn" onclick="window.location.href='success.html'">Continuer</button>
+  </div>
+
+  <script>
+    let timeLeft = 10;
+    const timer = document.getElementById("timer");
+    const btn = document.getElementById("continueBtn");
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timer.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        document.getElementById("timerText").style.display = "none";
+        btn.style.display = "inline-block";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
